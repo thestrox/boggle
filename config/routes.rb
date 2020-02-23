@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace(:api,   defaults: {format: "json"}) do
     namespace(:v1) do
       get("boggle",       to: "boggle#generate")
-      get("boggle/validate",       to: "boggle#validate")
+      post("boggle/validate",       to: "boggle#validate_word")
     end
   end
 
