@@ -5,12 +5,14 @@
 import React from 'react'
 import { render } from "react-dom";
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from '../reducers'
-import App from '../containers/App';
+import App from '../containers/App/App';
 import { BrowserRouter } from 'react-router-dom';
+import configureStore from '../store';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const store = createStore(rootReducer)
+toast.configure();
+const store = configureStore();
 
 document.addEventListener('DOMContentLoaded', () => {
   render
@@ -18,6 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </Provider>,
+    </Provider >,
       document.body.appendChild(document.createElement('div')));
 });
