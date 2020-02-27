@@ -7,9 +7,10 @@ export function validatationFail(word: string) {
   };
 }
 
-export function validatationSuccess(word: string) {
+export function validatationSuccess(word: string, score: number) {
   return {
     type: VALIDATION_SUCCESS,
-    word: word
+    word: word,
+    score: score
   };
 }

@@ -6,7 +6,7 @@ import {
 } from "./types";
 
 const initialState: ScoreState = {
-  wordList: []
+  wordScoreMap: {}
 };
 
 export function scoreReducer(
@@ -17,7 +17,7 @@ export function scoreReducer(
     case VALIDATION_SUCCESS:
       return {
         ...state,
-        wordList: [...state.wordList, action.word]
+        wordScoreMap: { ...state.wordScoreMap, [action.word]: action.score }
       };
 
     case VALIDATION_FAILURE:

@@ -3,7 +3,7 @@ export const VALIDATION_FAILURE = "VALIDATION_FAILURE";
 export const VALIDATION_SUCCESS = "VALIDATION_SUCCESS";
 
 export interface ScoreState {
-  wordList: string[];
+  wordScoreMap: { [key: string]: number };
 }
 
 interface ValidationFailureAction {
@@ -14,6 +14,7 @@ interface ValidationFailureAction {
 interface ValidationSuccessAction {
   type: typeof VALIDATION_SUCCESS;
   word: string;
+  score: number;
 }
 
 export type ScoreActionTypes =
