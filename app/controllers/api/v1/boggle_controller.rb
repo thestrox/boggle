@@ -1,4 +1,5 @@
 BOARD_SIZE = 4
+GAME_DURATION = 10000
 
 class Api::V1::BoggleController < ApplicationController
   skip_before_action :verify_authenticity_token
@@ -7,7 +8,7 @@ class Api::V1::BoggleController < ApplicationController
     dices = get_randomize_dice_faces(BOARD_SIZE)
 
     # Renders JSON data of form BOARD_SIZE * BOARD_SIZE
-    render(    json: ApiResponse.new(true, "Board is Initialized", {board: dices.each_slice(BOARD_SIZE).to_a}),     status: 200)
+    render(    json: ApiResponse.new(true, "Board is Initialized", {board: dices.each_slice(BOARD_SIZE).to_a, duration: GAME_DURATION}),     status: 200)
   end
 
   def validate_word

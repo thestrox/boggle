@@ -7,6 +7,7 @@ export interface Response<T> {
 
 export interface NewGameResponse {
   board: string[][];
+  duration: number;
 }
 
 export interface ValidateRequest {

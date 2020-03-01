@@ -8,13 +8,14 @@ import {
   CORRECT,
   INVALID_WORD
 } from "../shared/constants/messages";
-import { Response, ValidateRequest } from "../shared/types/api-types";
+import { ValidateRequest } from "../shared/types/api-types";
+import { reset } from "./common-actions";
 
 export const initializeNewBoard = (): AppThunk => async dispatch => {
   const response = await getBoard();
   if (response.success) {
     toast.success(GAME_LOADED);
-    dispatch(initializeBoard(response.data.board));
+    dispatch(initializeBoard(response.data.board, response.data.duration));
   } else {
     toast.error(response.message);
   }
@@ -23,7 +24,6 @@ export const initializeNewBoard = (): AppThunk => async dispatch => {
 export const validateWord = (
   validateRequestBody: ValidateRequest
 ): AppThunk => async dispatch => {
-  console.log(validateRequestBody);
   const response = await validateWordApi(validateRequestBody);
   if (response.success) {
     if (response.data.score) {
@@ -37,4 +37,8 @@ export const validateWord = (
   } else {
     toast.error(response.message);
   }
+};
+
+export const resetBoard = (): AppThunk => dispatch => {
+  dispatch(reset());
 };

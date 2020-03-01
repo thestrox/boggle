@@ -1,3 +1,5 @@
+import { ResetActionType } from "../common-actions";
+
 // ACTION NAMES
 export const VALIDATION_FAILURE = "VALIDATION_FAILURE";
 export const VALIDATION_SUCCESS = "VALIDATION_SUCCESS";
@@ -19,4 +21,5 @@ interface ValidationSuccessAction {
 
 export type ScoreActionTypes =
   | ValidationFailureAction
-  | ValidationSuccessAction;
+  | ValidationSuccessAction
+  | ResetActionType;
