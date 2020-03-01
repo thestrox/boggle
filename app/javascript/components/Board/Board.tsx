@@ -1,17 +1,19 @@
 import React from "react";
 import Tile from "../Tile/Tile";
+import "./Board.css"
 
 export type BoardProps = {
-    board: string[][]
+    board: string[][],
+    className: string
 }
 
-export default function Board({ board }: BoardProps) {
+export default function Board({ board, className }: BoardProps) {
 
     return (
-        <div>
+        <div className={`board ${className}`}>
             {board.map((row, index) => {
                 return (
-                    <div key={index}>
+                    <div className="board-row" key={index}>
                         {row.map((letter, index) => {
                             return (<Tile key={index} letter={letter} />);
                         })}

@@ -1,0 +1,28 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-container {
+    margin-right: 50px;
+}
+
+.wordlist-container {
+    margin-bottom: 10px !important;
+}
+
+.board-container, .wordlist-container  {
+    min-height: 200px;
+}
+
+.word-input {
+    margin-bottom: 10px;
+}
+
+.home-button, .submit-button {
+    margin-right: 10px !important;
+}
+
+.submit-button {
+    margin-top: 10px !important;
+}

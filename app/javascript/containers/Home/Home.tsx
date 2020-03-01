@@ -6,8 +6,11 @@ import { initializeNewBoard, validateWord, resetBoard } from "../../store/thunks
 import WordList from "../../components/WordList/WordList";
 import { ValidateRequest } from "../../shared/types/api-types";
 import { toast } from "react-toastify";
-import Countdown from "react-countdown";
+import Countdown, { zeroPad } from "react-countdown";
 import { Redirect } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import "./Home.css"
+import { Input } from "@material-ui/core";
 
 export type HomeProps = {
     board: string[][];
@@ -22,7 +25,7 @@ export type HomeProps = {
 export type HomeState = {
     currentWord: string;
     toResult: boolean;
-}
+};
 
 class Home extends React.Component<HomeProps, HomeState> {
 
@@ -46,7 +49,7 @@ class Home extends React.Component<HomeProps, HomeState> {
         this.props.initializeNewBoard();
     }
 
-    onGameFinished = () => {
+    endGame = () => {
         this.setState({
             toResult: true
         });
@@ -71,6 +74,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     keyPress = (e: React.KeyboardEvent<any>) => {
         if (e.key === "Enter") {
             this.validateWord();
+            this.updateCurrentWord("");
         }
     }
 
@@ -82,17 +86,35 @@ class Home extends React.Component<HomeProps, HomeState> {
         }
 
         return (
-            <div>
-                <button onClick={this.reset}>Reset</button>
-                <button onClick={this.newGame}>New Game</button>
-                <Countdown date={this.props.gameStartDate + this.props.duration} onComplete={this.onGameFinished}></Countdown>
-                <Board board={this.props.board}></Board>
-                <input
-                    onChange={this.onChange}
-                    onKeyPress={this.keyPress}
-                    placeholder="Type a suitable word"
-                />
-                <WordList wordScoreMap={this.props.wordScoreMap}></WordList>
+            <div className="home-container">
+                <div className="left-container">
+                    <Input className="word-input"
+                        value={this.state.currentWord}
+                        onChange={this.onChange}
+                        onKeyPress={this.keyPress}
+                        placeholder="Type a suitable word"
+                    />
+
+                    <Board board={this.props.board} className="board-container"></Board>
+                    <Button classes={{ root: 'submit-button' }} variant="contained" color="primary" onClick={this.endGame}>
+                        End Game
+                        </Button>
+
+                </div>
+                <div className="right-container">
+                    {this.props.gameStartDate &&
+                        <Countdown
+                            date={this.props.gameStartDate + this.props.duration}
+                            onComplete={this.endGame}
+                            renderer={(props) => <span>{zeroPad(props.minutes)}:{zeroPad(props.seconds)}</span>}
+                        />
+                    }
+                    <div>Results: </div>
+                    <WordList wordScoreMap={this.props.wordScoreMap} className="wordlist-container"></WordList>
+                    <Button classes={{ root: 'home-button' }} variant="contained" onClick={this.reset}>Reset</Button>
+                    <Button classes={{ root: 'home-button' }} variant="contained" onClick={this.newGame}>New Game</Button>
+
+                </div>
             </div>
         );
     }

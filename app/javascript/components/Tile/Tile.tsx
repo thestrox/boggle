@@ -1,4 +1,5 @@
 import React from "react";
+import "./Tile.css"
 
 export type TileProp = {
     letter: string
@@ -6,5 +7,9 @@ export type TileProp = {
 
 export default function Tile({ letter }: TileProp) {
 
-    return (<span>{letter}</span>)
+    return (
+        <div className="tile-container">
+            <span className="letter-span">{letter}</span>
+        </div>
+    );
 }

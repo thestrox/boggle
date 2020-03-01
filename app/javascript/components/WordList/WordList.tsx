@@ -1,18 +1,27 @@
 import React from "react";
+import "./WordList.css"
+import { List, ListItem, Divider } from "@material-ui/core";
 
 export type WordListProp = {
-    wordScoreMap: { [key: string]: number }
+    wordScoreMap: { [key: string]: number },
+    className?: string
 }
 
-export default function WordList({ wordScoreMap }: WordListProp) {
+export default function WordList({ wordScoreMap, className }: WordListProp) {
 
     return (
-        <ul>
+        <List className={`wordlist ${className}`}>
             {Object.keys(wordScoreMap).map(word => {
                 return (
-                    <li key={word}>{word} : {wordScoreMap[word]}</li>
+                    <>
+                        <ListItem className="wordlist-item" key={word}>
+                            <span>{word}:</span>
+                            <span>{wordScoreMap[word]}</span>
+                        </ListItem>
+                        <Divider />
+                    </>
                 );
             })}
-        </ul>
+        </List>
     )
 }

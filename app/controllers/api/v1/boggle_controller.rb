@@ -1,5 +1,5 @@
 BOARD_SIZE = 4
-GAME_DURATION = 10000
+GAME_DURATION = 180000
 
 class Api::V1::BoggleController < ApplicationController
   skip_before_action :verify_authenticity_token

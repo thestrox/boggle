@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import configureStore from '../store';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "./index.css"
 
 toast.configure();
 const store = configureStore();

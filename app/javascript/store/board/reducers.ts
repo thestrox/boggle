@@ -4,7 +4,7 @@ import { RESET_ACTION, ResetActionType } from "../common-actions";
 const initialState: BoardState = {
   board: [[]],
   duration: null,
-  gameStartDate: Date.now()
+  gameStartDate: null
 };
 
 export function boardReducer(

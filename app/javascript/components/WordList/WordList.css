@@ -1,0 +1,9 @@
+.wordlist {
+    border: 1px solid lightgray;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.wordlist-item {
+    justify-content: space-between !important;
+}

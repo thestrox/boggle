@@ -1,0 +1,10 @@
+.scorelist-container {
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.total-container, .time-container {
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+}
