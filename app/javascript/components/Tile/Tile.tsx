@@ -2,13 +2,14 @@ import React from "react";
 import "./Tile.css"
 
 export type TileProp = {
-    letter: string
+    letter: string,
+    onClick: () => void
 }
 
-export default function Tile({ letter }: TileProp) {
+export default function Tile({ letter, onClick }: TileProp) {
 
     return (
-        <div className="tile-container">
+        <div onClick={onClick} className="tile-container">
             <span className="letter-span">{letter}</span>
         </div>
     );

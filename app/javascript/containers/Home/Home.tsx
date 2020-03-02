@@ -61,6 +61,7 @@ class Home extends React.Component<HomeProps, HomeState> {
         } else {
             this.props.validateWord({ board: this.props.board, word: this.state.currentWord });
         }
+        this.updateCurrentWord("");
     }
 
     onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,8 +75,11 @@ class Home extends React.Component<HomeProps, HomeState> {
     keyPress = (e: React.KeyboardEvent<any>) => {
         if (e.key === "Enter") {
             this.validateWord();
-            this.updateCurrentWord("");
         }
+    }
+
+    onTileClick = (row: number, col: number) => {
+        this.updateCurrentWord(this.state.currentWord + this.props.board[row][col]);
     }
 
     render() {
@@ -95,10 +99,11 @@ class Home extends React.Component<HomeProps, HomeState> {
                         placeholder="Type a suitable word"
                     />
 
-                    <Board board={this.props.board} className="board-container"></Board>
-                    <Button classes={{ root: 'submit-button' }} variant="contained" color="primary" onClick={this.endGame}>
-                        End Game
-                        </Button>
+                    <Board board={this.props.board} onTileClick={this.onTileClick} className="board-container"></Board>
+                    <div className="button-wrapper">
+                        <Button classes={{ root: 'submit-button' }} variant="contained" color="primary" onClick={this.validateWord}>Submit Word</Button>
+                        <Button classes={{ root: 'end-button' }} variant="contained" color="default" onClick={this.endGame}>End Game</Button>
+                    </div>
 
                 </div>
                 <div className="right-container">
@@ -111,11 +116,14 @@ class Home extends React.Component<HomeProps, HomeState> {
                     }
                     <div>Results: </div>
                     <WordList wordScoreMap={this.props.wordScoreMap} className="wordlist-container"></WordList>
-                    <Button classes={{ root: 'home-button' }} variant="contained" onClick={this.reset}>Reset</Button>
-                    <Button classes={{ root: 'home-button' }} variant="contained" onClick={this.newGame}>New Game</Button>
+                    <div className="button-wrapper">
+                        <Button classes={{ root: 'reset-button' }} variant="contained" onClick={this.reset}>Reset</Button>
+                        <Button classes={{ root: 'new-button' }} variant="contained" onClick={this.newGame}>New Game</Button>
+                    </div>
+
 
                 </div>
-            </div>
+            </div >
         );
     }
 }

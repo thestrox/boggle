@@ -7,10 +7,6 @@
     margin-right: 50px;
 }
 
-.wordlist-container {
-    margin-bottom: 10px !important;
-}
-
 .board-container, .wordlist-container  {
     min-height: 200px;
 }
@@ -19,10 +15,10 @@
     margin-bottom: 10px;
 }
 
-.home-button, .submit-button {
+.reset-button, .end-button, .submit-button, .new-button {
     margin-right: 10px !important;
 }
 
-.submit-button {
+.button-wrapper {
     margin-top: 10px !important;
 }

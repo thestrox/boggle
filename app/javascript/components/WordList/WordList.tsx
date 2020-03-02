@@ -13,13 +13,13 @@ export default function WordList({ wordScoreMap, className }: WordListProp) {
         <List className={`wordlist ${className}`}>
             {Object.keys(wordScoreMap).map(word => {
                 return (
-                    <>
-                        <ListItem className="wordlist-item" key={word}>
+                    <React.Fragment key={word}>
+                        <ListItem className="wordlist-item" >
                             <span>{word}:</span>
                             <span>{wordScoreMap[word]}</span>
                         </ListItem>
                         <Divider />
-                    </>
+                    </React.Fragment>
                 );
             })}
         </List>
