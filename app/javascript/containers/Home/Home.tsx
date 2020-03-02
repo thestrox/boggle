@@ -68,7 +68,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     }
 
     updateCurrentWord = (word: string) => {
-        this.setState({ currentWord: word });
+        this.setState({ currentWord: word.toUpperCase() });
     }
 
     keyPress = (e: React.KeyboardEvent<any>) => {

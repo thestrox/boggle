@@ -1,15 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AppState } from "../../store";
+import { AppState, AppThunk } from "../../store";
 import WordList from "../../components/WordList/WordList";
 import "./Result.css"
 import { Button } from "@material-ui/core";
 import { formatTimeDelta, calcTimeDelta, zeroPad } from "react-countdown";
 import { Redirect } from "react-router-dom";
+import { resetBoard } from "../../store/thunks";
 
 export type ResultProps = {
     wordScoreMap: { [key: string]: number },
     gameStartDate: number;
+    resetBoard: () => AppThunk
 }
 
 export type ResultState = {
@@ -26,6 +28,7 @@ class Result extends React.Component<ResultProps, ResultState> {
     }
 
     toHome = () => {
+        this.props.resetBoard();
         this.setState({ toHome: true })
     }
 
@@ -70,6 +73,7 @@ const mapStateToProps = (state: AppState) => {
 }
 
 const ResultConnected = connect(
-    mapStateToProps
+    mapStateToProps,
+    {resetBoard: resetBoard}
 )(Result)
 export default ResultConnected

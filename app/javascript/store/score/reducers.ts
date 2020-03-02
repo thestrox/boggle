@@ -18,7 +18,7 @@ export function scoreReducer(
     case VALIDATION_SUCCESS:
       return {
         ...state,
-        wordScoreMap: { ...state.wordScoreMap, [action.word]: action.score }
+        wordScoreMap: { ...state.wordScoreMap, [action.word.toUpperCase()]: action.score }
       };
 
     case VALIDATION_FAILURE:
