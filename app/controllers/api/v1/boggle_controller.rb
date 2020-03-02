@@ -90,12 +90,8 @@ class Api::V1::BoggleController < ApplicationController
   end
 
   def positional_valid?(word, board)
-    # check_board_type("Board", board, BOARD_SIZE)
     board.each_with_index { |row, i|
-
-      # check_board_type("Board Row", row, BOARD_SIZE)
       row.each_with_index { |board_character, j|
-
         if is_character_match?(word[0, 2], board_character)
           if is_next_character_valid?(word, Point.new(i, j), board)
             return true
