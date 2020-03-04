@@ -19,6 +19,8 @@ This is a boggle game developed using Ruby on Rails and React.
     yarn install
     rails s
     ```
+    
+    You can now play the boggle game from http://localhost:3000/
 
 * How to run the test suite
     * Run Rails test using
