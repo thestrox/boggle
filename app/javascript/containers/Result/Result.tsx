@@ -1,17 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AppState, AppThunk } from "../../store";
+import { AppState } from "../../store";
 import WordList from "../../components/WordList/WordList";
 import "./Result.css"
 import { Button } from "@material-ui/core";
 import { formatTimeDelta, calcTimeDelta, zeroPad } from "react-countdown";
 import { Redirect } from "react-router-dom";
-import { resetBoard } from "../../store/thunks";
+import { reset } from "../../store/common-actions";
 
 export type ResultProps = {
-    wordScoreMap: { [key: string]: number },
+    wordScoreMap: { [key: string]: number };
     gameStartDate: number;
-    resetBoard: () => AppThunk
+    resetBoard: () => void;
 }
 
 export type ResultState = {
@@ -74,6 +74,6 @@ const mapStateToProps = (state: AppState) => {
 
 const ResultConnected = connect(
     mapStateToProps,
-    {resetBoard: resetBoard}
+    {resetBoard: reset}
 )(Result)
 export default ResultConnected

@@ -1,8 +1,8 @@
 import React from "react";
 import Board from "../../components/Board/Board";
 import { connect } from "react-redux";
-import { AppState, AppThunk } from "../../store";
-import { initializeNewBoard, validateWord, resetBoard } from "../../store/thunks";
+import { AppState } from "../../store";
+import { initializeNewBoard, validateWord } from "../../store/thunks";
 import WordList from "../../components/WordList/WordList";
 import { ValidateRequest } from "../../shared/types/api-types";
 import { toast } from "react-toastify";
@@ -11,15 +11,16 @@ import { Redirect } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import "./Home.css"
 import { Input } from "@material-ui/core";
+import { reset } from "../../store/common-actions";
 
 export type HomeProps = {
     board: string[][];
     wordScoreMap: { [key: string]: number }
     duration: number;
     gameStartDate: number;
-    initializeNewBoard: () => AppThunk,
-    validateWord: (validateRequestBody: ValidateRequest) => AppThunk
-    resetBoard: () => AppThunk
+    initializeNewBoard: () => Promise<void>;
+    validateWord: (validateRequestBody: ValidateRequest) => Promise<void>;
+    resetBoard: () => void;
 }
 
 export type HomeState = {
@@ -38,7 +39,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     }
 
     componentDidMount() {
-        this.props.initializeNewBoard();
+        this.newGame();
     }
 
     reset = () => {
@@ -46,6 +47,7 @@ class Home extends React.Component<HomeProps, HomeState> {
     }
 
     newGame = () => {
+        this.reset();
         this.props.initializeNewBoard();
     }
 
@@ -142,7 +144,7 @@ const HomeConnected = connect(
     {
         initializeNewBoard: initializeNewBoard,
         validateWord: validateWord,
-        resetBoard: resetBoard
+        resetBoard: reset
     }
 )(Home)
 export default HomeConnected

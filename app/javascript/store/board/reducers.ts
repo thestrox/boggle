@@ -1,5 +1,5 @@
 import { BoardState, BoardActionTypes, INITIALIZE_BOARD } from "./types";
-import { RESET_ACTION, ResetActionType } from "../common-actions";
+import { RESET_ACTION } from "../common-actions";
 
 const initialState: BoardState = {
   board: [[]],
@@ -9,7 +9,7 @@ const initialState: BoardState = {
 
 export function boardReducer(
   state = initialState,
-  action: BoardActionTypes | ResetActionType
+  action: BoardActionTypes
 ): BoardState {
   switch (action.type) {
     case INITIALIZE_BOARD:
