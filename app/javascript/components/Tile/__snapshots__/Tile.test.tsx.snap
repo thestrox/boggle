@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tile Component should test snapshot renders 1`] = `
+<div
+  className="tile-container"
+  onClick={[MockFunction]}
+>
+  <span
+    className="letter-span"
+  >
+    A
+  </span>
+</div>
+`;

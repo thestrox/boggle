@@ -4,7 +4,7 @@ import "./Board.css"
 
 export type BoardProps = {
     board: string[][],
-    className: string,
+    className?: string,
     onTileClick: (row: number, col: number) => void
 }
 

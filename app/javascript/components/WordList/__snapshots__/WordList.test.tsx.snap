@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WordList Component should test snapshot renders 1`] = `
+<WithStyles(ForwardRef(List))
+  className="wordlist test-class"
+>
+  <WithStyles(ForwardRef(ListItem))
+    className="wordlist-item"
+  >
+    <span>
+      abc
+      :
+    </span>
+    <span>
+      3
+    </span>
+  </WithStyles(ForwardRef(ListItem))>
+  <WithStyles(ForwardRef(Divider)) />
+</WithStyles(ForwardRef(List))>
+`;

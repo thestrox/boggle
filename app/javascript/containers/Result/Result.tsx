@@ -18,7 +18,7 @@ export type ResultState = {
     toHome: boolean;
 }
 
-class Result extends React.Component<ResultProps, ResultState> {
+export class Result extends React.Component<ResultProps, ResultState> {
     constructor(props: ResultProps) {
         super(props);
         this.state = {

@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Component should test snapshot renders 1`] = `
+<div
+  className="home-container"
+>
+  <div
+    className="left-container"
+  >
+    <WithStyles(ForwardRef(Input))
+      className="word-input"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Type a suitable word"
+      value=""
+    />
+    <Board
+      board={
+        Array [
+          Array [
+            "A",
+            "B",
+            "C",
+            "D",
+          ],
+          Array [
+            "E",
+            "F",
+            "G",
+            "H",
+          ],
+          Array [
+            "I",
+            "J",
+            "K",
+            "L",
+          ],
+          Array [
+            "M",
+            "N",
+            "O",
+            "P",
+          ],
+        ]
+      }
+      className="board-container"
+      onTileClick={[Function]}
+    />
+    <div
+      className="button-wrapper"
+    >
+      <WithStyles(ForwardRef(Button))
+        classes={
+          Object {
+            "root": "submit-button",
+          }
+        }
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Submit Word
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        classes={
+          Object {
+            "root": "end-button",
+          }
+        }
+        color="default"
+        onClick={[Function]}
+        variant="contained"
+      >
+        End Game
+      </WithStyles(ForwardRef(Button))>
+    </div>
+  </div>
+  <div
+    className="right-container"
+  >
+    <Countdown$1
+      autoStart={true}
+      controlled={false}
+      date={2234}
+      daysInHours={false}
+      intervalDelay={1000}
+      onComplete={[Function]}
+      precision={0}
+      renderer={[Function]}
+      zeroPadTime={2}
+    />
+    <div>
+      Results: 
+    </div>
+    <WordList
+      className="wordlist-container"
+      wordScoreMap={
+        Object {
+          "ONE": 3,
+        }
+      }
+    />
+    <div
+      className="button-wrapper"
+    >
+      <WithStyles(ForwardRef(Button))
+        classes={
+          Object {
+            "root": "reset-button",
+          }
+        }
+        onClick={[Function]}
+        variant="contained"
+      >
+        Reset
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        classes={
+          Object {
+            "root": "new-button",
+          }
+        }
+        onClick={[Function]}
+        variant="contained"
+      >
+        New Game
+      </WithStyles(ForwardRef(Button))>
+    </div>
+  </div>
+</div>
+`;
