@@ -11,6 +11,10 @@
     min-height: 200px;
 }
 
+.wordlist-container {
+    height: 250px;
+}
+
 .word-input {
     margin-bottom: 10px;
 }

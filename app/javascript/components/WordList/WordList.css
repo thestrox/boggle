@@ -2,6 +2,7 @@
     border: 1px solid lightgray;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    overflow: auto;
 }
 
 .wordlist-item {

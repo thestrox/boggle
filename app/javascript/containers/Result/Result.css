@@ -1,6 +1,7 @@
 .scorelist-container {
     min-width: 200px;
     min-height: 200px;
+    max-height: 500px;
 }
 
 .total-container, .time-container {
